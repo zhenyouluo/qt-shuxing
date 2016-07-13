@@ -1,0 +1,19 @@
+ServerSocket.cpp中dataReceived函数需要重新写，在这中要对数据进行解析，分别识别命令，做出相应的处理。
+
+数据的发送格式为
+
+int{数据块的长度} int{命令类型} data{命令的内容}
+
+
+控制命令格式
+请求命令
+数据块长度 isCMD 命令代号       命令内容
+
+                  0          logDir
+                  1+文件名    logfile
+                  3          workingDevinfo
+                  2          clientinfo
+                  4          devinfo
+                  5
+应答
+数据块长度 isCMD 命令代号 应答内容
